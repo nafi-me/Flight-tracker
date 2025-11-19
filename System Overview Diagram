@@ -1,0 +1,28 @@
+                   ┌─────────────────────────────┐
+                   │  Python Flight Collector     │
+                   │ (ADS-B, APIs, ML detection)  │
+                   └──────────────┬──────────────┘
+                                  ↓
+                       Raw data via REST
+                                  ↓
+        ┌─────────────────────────┴─────────────────────────┐
+        │                Java Spring Boot API               │
+        │  • REST endpoints                                 │
+        │  • STOMP WebSocket (/topic/flights)               │
+        │  • Security (Admin JWT / OAuth2)                  │
+        │  • Stores into PostgreSQL (PostGIS)               │
+        │  • Offloads heavy math to C module                │
+        └─────────────────────────┬─────────────────────────┘
+                                  ↓
+                        PostgreSQL + PostGIS
+                     (live flight position DB)
+                                  ↓
+                         Oracle Data Warehouse
+                     (historical & analytics)
+                                  ↓
+  ┌───────────────────────────┬───────────────────────────┐
+  │                           │                           │
+Web Dashboard          Kotlin Android App               CSV Export API
+HTML/CSS/JS            Jetpack Compose + Maps           /export/flights.csv
+Yandex Maps / Cesium   Real-time markers                Admin-only
+WebSockets (STOMP)     Alerts + push notifications
