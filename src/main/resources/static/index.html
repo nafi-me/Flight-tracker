@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Real-Time Flight Tracker — OpenLayers</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol/ol.css">
+  <script src="https://cdn.jsdelivr.net/npm/ol/ol.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Real-Time Flight Tracker</h1>
+    <div class="header-actions">
+      <button id="exportBtn">Export Selected 30s CSV</button>
+      <a href="/admin.html">Admin</a>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>Flights</h2>
+      <div id="flightList" class="list"></div>
+      <div class="controls">
+        <button id="toggleAll">Toggle All</button>
+        <button id="focusBtn">Focus Selected</button>
+      </div>
+      <div class="info">
+        <p id="status">Status: disconnected</p>
+        <p>Updates/sec: <span id="updatesCount">0</span></p>
+      </div>
+      <h3>Selected Speed (last 30)</h3>
+      <canvas id="speedChart"></canvas>
+    </aside>
+
+    <main class="map-container"><div id="map" style="width:100%;height:100%"></div></main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
