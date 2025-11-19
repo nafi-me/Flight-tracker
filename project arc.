@@ -1,0 +1,32 @@
+flight-tracker/
+│
+├── backend-java/            → Spring Boot (REST + WebSocket + Auth)
+│   ├── src/main/java/
+│   ├── src/main/resources/
+│   ├── pom.xml
+│
+├── backend-python/          → Python data ingestor (API → Queue → DB)
+│   ├── fetch_flights.py
+│   ├── requirements.txt
+│
+├── c-simulator/             → C program to simulate aircraft telemetry
+│   ├── simulator.c
+│   ├── Makefile
+│
+├── kotlin-dashboard/        → Admin desktop app (Kotlin + TornadoFX)
+│   └── src/
+│
+├── database/
+│   ├── postgres/
+│   │   ├── init.sql
+│   ├── oracle/
+│       ├── schema.sql
+│
+├── frontend/
+│   ├── index.html           → Flight map + WebSocket real-time updates
+│   ├── style.css
+│   ├── app.js
+│
+├── docker-compose.yml
+│
+└── README.md
