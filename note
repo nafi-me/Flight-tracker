@@ -1,0 +1,35 @@
+
+---
+
+## PART 13 — Android Kotlin Starter (Jetpack Compose) — outline + key files
+
+I’ll provide a minimal starter that subscribes to STOMP (via `okhttp` WebSocket) and shows markers on a map (Mapbox or Google Maps). Here I give the basic Gradle config and a main Activity to connect to the backend — full Android app build can be done in Android Studio.
+
+### `android-client/build.gradle.kts` (excerpt)
+
+```kotlin
+plugins {
+    id("com.android.application")
+    kotlin("android")
+}
+
+android {
+    compileSdk = 34
+    defaultConfig {
+        applicationId = "com.example.flighttracker"
+        minSdk = 24
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
+    }
+    buildFeatures { compose = true }
+    composeOptions { kotlinCompilerExtensionVersion = "1.6.0" }
+}
+
+dependencies {
+    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.compose.ui:ui:1.6.0")
+    implementation("androidx.compose.material:material:1.6.0")
+    implementation("com.squareup.okhttp3:okhttp:4.10.0")
+    implementation("com.google.android.gms:play-services-maps:18.1.0") // or Mapbox
+}
