@@ -1,0 +1,35 @@
+flight-tracker/
+├── backend-java/ (Spring Boot)
+│   ├── src/main/java/com/flighttracker
+│   │   ├── controllers/
+│   │   ├── websocket/
+│   │   ├── services/
+│   │   ├── security/
+│   │   ├── repository/
+│   │   ├── dto/
+│   │   ├── native-lib/ (C module)
+│   │   └── FlightTrackerApplication.java
+│   ├── src/main/resources/
+│   │   ├── static/ (HTML/CSS/JS)
+│   │   └── application.yml
+│   └── Dockerfile
+│
+├── python-collector/
+│   ├── collector.py
+│   ├── anomaly_detector.py
+│   └── Dockerfile
+│
+├── c-geo-module/
+│   ├── geo.c
+│   ├── geo.h
+│   └── Makefile
+│
+├── android-kotlin/
+│   └── (full Android app project)
+│
+├── database/
+│   ├── migrations/
+│   └── init.sql
+│
+├── docker-compose.yml
+└── README.md
